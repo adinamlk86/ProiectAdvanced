@@ -6,7 +6,4 @@ public class Stock {
     private int sugar;
     private int milk;
 
-    public static void main(String[] args) {
-
-    }
 }
