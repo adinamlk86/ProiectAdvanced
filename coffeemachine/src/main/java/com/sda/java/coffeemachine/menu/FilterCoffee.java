@@ -4,8 +4,14 @@ import com.sda.java.coffeemachine.CoffeeType;
 
 public class FilterCoffee extends Coffee {
 
+    public static final CoffeeType FILTERCOFFEE = CoffeeType.FILTERCOFFEE;
+
     public FilterCoffee() {
 
-        super(CoffeeType.FILTERCOFFEE);
+        super(FILTERCOFFEE);
+    }
+
+    protected String getCoffeeName() {
+        return FILTERCOFFEE.toString();
     }
 }

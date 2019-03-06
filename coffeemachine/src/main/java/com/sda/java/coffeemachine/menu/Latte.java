@@ -5,7 +5,13 @@ import com.sda.java.coffeemachine.CoffeeType;
 public class Latte extends Coffee {
 
 
+    public static final CoffeeType LATTE = CoffeeType.LATTE;
+
     public Latte() {
-        super(CoffeeType.LATTE);
+        super(LATTE);
+    }
+
+    protected String getCoffeeName() {
+        return LATTE.toString();
     }
 }
