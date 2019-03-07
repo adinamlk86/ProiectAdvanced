@@ -14,17 +14,18 @@ public class CoffeeMachine {
     public static void main(String[] args) throws Exception {
         final CoffeeMachine coffeeMachine = new CoffeeMachine();
         Stock stock = coffeeMachine.getStock();
-        stock.getIngredientStock(Ingredient.BEANS);
+       // stock.getIngredientStock(Ingredient.BEANS);
         stock.addIngredientToStock(Ingredient.BEANS, 500);
         stock.addIngredientToStock(Ingredient.WATER, 1000);
         stock.addIngredientToStock(Ingredient.SUGAR, 500);
         stock.addIngredientToStock(Ingredient.MILK, 500);
         //user selects coffee type
-        coffeeMachine.chooseCoffeeType(CoffeeType.LATTE);
+        coffeeMachine.chooseCoffeeType(CoffeeType.ESPRESSO);
 
         //user presses start
         final Coffee coffee = coffeeMachine.prepareCoffee();
         System.out.println("Drinking the " + coffee);
+        System.out.println(stock.toString());
 
     }
 

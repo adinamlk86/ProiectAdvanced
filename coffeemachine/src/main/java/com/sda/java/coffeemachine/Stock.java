@@ -26,8 +26,7 @@ public class Stock {
         if(!ingredients.containsKey(ingredient)){
             throw new Exception("404 Ingredient not found: "+ ingredient);
         }
-        else
-        {
+
             int currentQuantity = ingredients.get(ingredient);
 
             if (currentQuantity < quantityToBeRemoved) {
@@ -35,7 +34,7 @@ public class Stock {
             }
             int updatedQuantity = currentQuantity - quantityToBeRemoved;
             ingredients.put(ingredient, updatedQuantity);
-        }
+
 
     }
 
@@ -43,14 +42,18 @@ public class Stock {
         if(!ingredients.containsKey(ingredient)){
             throw new Exception("404 Ingredient not found: "+ ingredient);
         }
-        else
-        {
+
             int currentQuantity = ingredients.get(ingredient);
 
             int updatedQuantity = currentQuantity + quantityToBeAdded;
             ingredients.put(ingredient, updatedQuantity);
-        }
+
     }
 
-
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "ingredients=" + ingredients +
+                '}';
+    }
 }
