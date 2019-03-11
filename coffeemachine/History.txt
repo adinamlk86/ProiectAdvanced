@@ -1,0 +1,3 @@
+CoffeeMachineUse{preparedCoffee=ESPRESSO, preparationDate=Mon Mar 11 11:07:28 EET 2019}
+CoffeeMachineUse{preparedCoffee=LATTE, preparationDate=Mon Mar 11 11:07:28 EET 2019}
+CoffeeMachineUse{preparedCoffee=FILTERCOFFEE, preparationDate=Mon Mar 11 11:07:28 EET 2019}

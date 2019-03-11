@@ -32,4 +32,8 @@ public enum CoffeeType {
     public int getMilkRequired() {
         return milkRequired;
     }
+
+    public int getIngredientRequired(){
+        return 1;
+    }
 }

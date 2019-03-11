@@ -42,9 +42,7 @@ public class Stock {
         if(!ingredients.containsKey(ingredient)){
             throw new Exception("404 Ingredient not found: "+ ingredient);
         }
-
             int currentQuantity = ingredients.get(ingredient);
-
             int updatedQuantity = currentQuantity + quantityToBeAdded;
             ingredients.put(ingredient, updatedQuantity);
 
