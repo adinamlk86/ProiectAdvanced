@@ -1,5 +1,7 @@
 package com.sda.java.coffeemachine;
 
+import com.sda.java.coffeemachine.customexceptions.IngredientNotFoundError;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,45 +15,29 @@ public class Stock {
         }
     }
 
-    public int getIngredientStock(Ingredient ingredient) throws Exception{
+    public int getIngredientStock(Ingredient ingredient){
         if(!ingredients.containsKey(ingredient)){
-            throw  new Exception("404 Ingredient not found: " + ingredient);
+            throw  new IngredientNotFoundError(ingredient);
         }
         else{
             return ingredients.get(ingredient);
         }
     }
 
-    public void removeIngredientFromStock(Ingredient ingredient, int quantityToBeRemoved) throws Exception{
-        if(!ingredients.containsKey(ingredient)){
-            throw new Exception("404 Ingredient not found: "+ ingredient);
-        }
-
-            int currentQuantity = ingredients.get(ingredient);
-
-            if (currentQuantity < quantityToBeRemoved) {
-                throw new Exception("Not enough "+ingredient+ " in stock.");
-            }
-            int updatedQuantity = currentQuantity - quantityToBeRemoved;
-            ingredients.put(ingredient, updatedQuantity);
-
-
+    public void removeIngredientFromStock(Ingredient ingredient, int quantityToBeRemoved){
+        int currentQuantity = getIngredientStock(ingredient);
+        int updatedQuantity = currentQuantity - quantityToBeRemoved;
+        ingredients.put(ingredient, updatedQuantity);
     }
 
-    public void addIngredientToStock(Ingredient ingredient, int quantityToBeAdded)throws Exception{
-        if(!ingredients.containsKey(ingredient)){
-            throw new Exception("404 Ingredient not found: "+ ingredient);
-        }
-            int currentQuantity = ingredients.get(ingredient);
-            int updatedQuantity = currentQuantity + quantityToBeAdded;
-            ingredients.put(ingredient, updatedQuantity);
-
+    public void addIngredientToStock(Ingredient ingredient, int quantityToBeAdded){
+        int currentQuantity = getIngredientStock(ingredient);
+        int updatedQuantity = currentQuantity + quantityToBeAdded;
+        ingredients.put(ingredient, updatedQuantity);
     }
 
     @Override
     public String toString() {
-        return "Stock{" +
-                "ingredients=" + ingredients +
-                '}';
+        return "Stock: " + ingredients;
     }
 }

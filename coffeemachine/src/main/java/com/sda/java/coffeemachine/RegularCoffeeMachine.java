@@ -6,62 +6,17 @@ import com.sda.java.coffeemachine.menu.Espresso;
 import com.sda.java.coffeemachine.menu.FilterCoffee;
 import com.sda.java.coffeemachine.menu.Latte;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CoffeeMachine {
+public class RegularCoffeeMachine implements CoffeeMachineChoosePrepare,ServiceableCoffeeMachine {
     private final List<CoffeeMachineUse> coffeeLog = new ArrayList<>();
 
     private Stock stock = new Stock();
     private CoffeeType coffeeType = CoffeeType.FILTERCOFFEE;
 
-
-    public static void main(String[] args) throws Exception {
-        final CoffeeMachine coffeeMachine = new CoffeeMachine();
-        Stock stock = coffeeMachine.getStock();
-
-        stock.addIngredientToStock(Ingredient.BEANS, 500);
-        stock.addIngredientToStock(Ingredient.WATER, 1000);
-        stock.addIngredientToStock(Ingredient.SUGAR, 500);
-        stock.addIngredientToStock(Ingredient.MILK, 500);
-        //user selects coffee type
-
-        coffeeMachine.chooseCoffeeType(CoffeeType.ESPRESSO);
-        //user presses start
-        try {
-            final Coffee coffee = coffeeMachine.prepareCoffee();
-            System.out.println("Drinking the " + coffee);
-        } catch (NotEnoughIngredientsException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-
-        //latte
-        coffeeMachine.chooseCoffeeType(CoffeeType.LATTE);
-        try {
-            final Coffee coffee2 = coffeeMachine.prepareCoffee();
-            System.out.println("Drinking the " + coffee2);
-        }catch (NotEnoughIngredientsException e) {
-            System.out.println(e.getMessage());
-        }
-        //filtered
-        coffeeMachine.chooseCoffeeType(CoffeeType.FILTERCOFFEE);
-        try {
-            final Coffee coffee3 = coffeeMachine.prepareCoffee();
-            System.out.println("Drinking the " + coffee3);
-        }catch (NotEnoughIngredientsException e) {
-            System.out.println(e.getMessage());
-        }
-        System.out.println("Remaining ingredients: "+stock.toString());
-
-        String myLog = coffeeMachine.showLog();
-        System.out.println("Coffee history: "+myLog);
-
-        Files.write(Paths.get("C:\\Users\\LENOVO\\IdeaProjects\\GIT\\coffeemachine\\History.txt"),myLog.getBytes());
+    public RegularCoffeeMachine() {
 
     }
 
@@ -83,7 +38,7 @@ public class CoffeeMachine {
         stock.removeIngredientFromStock(Ingredient.MILK, coffeeType.getMilkRequired());
 
         Coffee coffee = createCoffee();
-        coffeeLog.add(new CoffeeMachineUse(coffee,new Date()));
+        coffeeLog.add(new CoffeeMachineUse(coffee, new Date()));
 
         return coffee;
     }
@@ -116,16 +71,14 @@ public class CoffeeMachine {
                 return new FilterCoffee();
         }
     }
-    public CoffeeMachine() {
 
-    }
 
-    private String showLog(){
+    public String showLog() {
         StringBuilder stringBuilder = new StringBuilder();
 
         coffeeLog.forEach(logEntry -> stringBuilder.append(logEntry).append(System.lineSeparator()));
 
-        return  stringBuilder.toString();
+        return stringBuilder.toString();
     }
 
 

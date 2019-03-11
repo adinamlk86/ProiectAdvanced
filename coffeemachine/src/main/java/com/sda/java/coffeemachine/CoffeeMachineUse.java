@@ -16,9 +16,7 @@ public class CoffeeMachineUse {
 
     @Override
     public String toString() {
-        return "CoffeeMachineUse{" +
-                "preparedCoffee=" + preparedCoffee +
-                ", preparationDate=" + preparationDate +
-                '}';
+        return "CoffeeMachineUse: " + preparedCoffee +
+                ", " + preparationDate;
     }
 }
