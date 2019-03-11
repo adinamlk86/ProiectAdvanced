@@ -1,6 +1,7 @@
 package com.sda.java.coffeemachine;
 
 import com.sda.java.coffeemachine.customexceptions.IngredientNotFoundError;
+import com.sda.java.coffeemachine.menu.Ingredient;
 
 import java.util.HashMap;
 import java.util.Map;

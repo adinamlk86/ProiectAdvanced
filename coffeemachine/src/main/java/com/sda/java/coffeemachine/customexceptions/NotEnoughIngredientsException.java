@@ -1,7 +1,7 @@
 package com.sda.java.coffeemachine.customexceptions;
 
-import com.sda.java.coffeemachine.CoffeeType;
-import com.sda.java.coffeemachine.Ingredient;
+import com.sda.java.coffeemachine.coffeemachine.CoffeeType;
+import com.sda.java.coffeemachine.menu.Ingredient;
 
 public class NotEnoughIngredientsException extends Exception {
 

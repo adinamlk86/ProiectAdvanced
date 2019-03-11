@@ -1,6 +1,6 @@
 package com.sda.java.coffeemachine.menu;
 
-import com.sda.java.coffeemachine.CoffeeType;
+import com.sda.java.coffeemachine.coffeemachine.CoffeeType;
 
 public abstract class Coffee {
 

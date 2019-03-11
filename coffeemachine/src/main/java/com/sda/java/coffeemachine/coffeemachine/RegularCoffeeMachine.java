@@ -1,5 +1,7 @@
-package com.sda.java.coffeemachine;
+package com.sda.java.coffeemachine.coffeemachine;
 
+import com.sda.java.coffeemachine.menu.Ingredient;
+import com.sda.java.coffeemachine.Stock;
 import com.sda.java.coffeemachine.customexceptions.NotEnoughIngredientsException;
 import com.sda.java.coffeemachine.menu.Coffee;
 import com.sda.java.coffeemachine.menu.Espresso;

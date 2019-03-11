@@ -1,4 +1,4 @@
-package com.sda.java.coffeemachine;
+package com.sda.java.coffeemachine.coffeemachine;
 
 public enum CoffeeType {
     ESPRESSO(5,50,0,0),

@@ -1,7 +1,12 @@
 package com.sda.java.coffeemachine;
 
+import com.sda.java.coffeemachine.coffeemachine.CoffeeMachineChoosePrepare;
+import com.sda.java.coffeemachine.coffeemachine.RegularCoffeeMachine;
+import com.sda.java.coffeemachine.coffeemachine.ServiceableCoffeeMachine;
 import com.sda.java.coffeemachine.customexceptions.NotEnoughIngredientsException;
 import com.sda.java.coffeemachine.menu.Coffee;
+import com.sda.java.coffeemachine.coffeemachine.CoffeeType;
+import com.sda.java.coffeemachine.menu.Ingredient;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
